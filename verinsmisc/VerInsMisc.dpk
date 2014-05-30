@@ -1,4 +1,4 @@
-package svn;
+package VerInsMisc;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -25,19 +25,16 @@ package svn;
 {$IMAGEBASE $400000}
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Subversion integration'}
-{$LIBSUFFIX '150'}
+{$DESCRIPTION 'Common Source Control integration units'}
 {$RUNONLY}
 {$IMPLICITBUILD OFF}
 
 requires
-  rtl;
+  rtl,
+  designide;
 
 contains
-  apr in 'apr.pas',
-  svn_client in 'svn_client.pas',
-  SvnClient in 'SvnClient.pas',
-  svnconst in 'svnconst.pas',
-  SvnTree in 'SvnTree.pas';
+  VerInsIDEUtils in 'VerInsIDEUtils.pas',
+  VerInsResources in 'VerInsResources.pas';
 
 end.

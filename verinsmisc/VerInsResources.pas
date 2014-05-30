@@ -28,6 +28,6 @@ interface
 
 implementation
 
-{$R ..\resources\tsvn.res}
+{$R ..\resources\tsvn.res tsvn.rc}
 
 end.

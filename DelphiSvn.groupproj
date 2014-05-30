@@ -1,60 +1,84 @@
-﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-		<PropertyGroup>
-			<ProjectGuid>{1F2132FC-0C52-4406-9415-6AF6BED0B3DF}</ProjectGuid>
-		</PropertyGroup>
-		<ItemGroup>
-			<Projects Include="svn\svn.dproj">
-				<Dependencies/>
-			</Projects>
-			<Projects Include="svnui\svnui.dproj">
-				<Dependencies/>
-			</Projects>
-			<Projects Include="svnide\svnide.dproj">
-				<Dependencies/>
-			</Projects>
-		</ItemGroup>
-		<ProjectExtensions>
-			<Borland.Personality>Default.Personality.12</Borland.Personality>
-			<Borland.ProjectType/>
-			<BorlandProject>
-				<Default.Personality/>
-			</BorlandProject>
-		</ProjectExtensions>
-		<Target Name="svn">
-			<MSBuild Projects="svn\svn.dproj"/>
-		</Target>
-		<Target Name="svn:Clean">
-			<MSBuild Projects="svn\svn.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="svn:Make">
-			<MSBuild Projects="svn\svn.dproj" Targets="Make"/>
-		</Target>
-		<Target Name="svnui">
-			<MSBuild Projects="svnui\svnui.dproj"/>
-		</Target>
-		<Target Name="svnui:Clean">
-			<MSBuild Projects="svnui\svnui.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="svnui:Make">
-			<MSBuild Projects="svnui\svnui.dproj" Targets="Make"/>
-		</Target>
-		<Target Name="svnide">
-			<MSBuild Projects="svnide\svnide.dproj"/>
-		</Target>
-		<Target Name="svnide:Clean">
-			<MSBuild Projects="svnide\svnide.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="svnide:Make">
-			<MSBuild Projects="svnide\svnide.dproj" Targets="Make"/>
-		</Target>
-		<Target Name="Build">
-			<CallTarget Targets="svn;svnui;svnide"/>
-		</Target>
-		<Target Name="Clean">
-			<CallTarget Targets="svn:Clean;svnui:Clean;svnide:Clean"/>
-		</Target>
-		<Target Name="Make">
-			<CallTarget Targets="svn:Make;svnui:Make;svnide:Make"/>
-		</Target>
-		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
-	</Project>
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1F2132FC-0C52-4406-9415-6AF6BED0B3DF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="verinsmisc\VerInsMisc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="svn\svn.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="svnui\svnui.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="svnide\svnide.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="gitide\GitIDE.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VerInsMisc">
+        <MSBuild Projects="verinsmisc\VerInsMisc.dproj"/>
+    </Target>
+    <Target Name="VerInsMisc:Clean">
+        <MSBuild Projects="verinsmisc\VerInsMisc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VerInsMisc:Make">
+        <MSBuild Projects="verinsmisc\VerInsMisc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="svn">
+        <MSBuild Projects="svn\svn.dproj"/>
+    </Target>
+    <Target Name="svn:Clean">
+        <MSBuild Projects="svn\svn.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="svn:Make">
+        <MSBuild Projects="svn\svn.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="svnui">
+        <MSBuild Projects="svnui\svnui.dproj"/>
+    </Target>
+    <Target Name="svnui:Clean">
+        <MSBuild Projects="svnui\svnui.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="svnui:Make">
+        <MSBuild Projects="svnui\svnui.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="svnide">
+        <MSBuild Projects="svnide\svnide.dproj"/>
+    </Target>
+    <Target Name="svnide:Clean">
+        <MSBuild Projects="svnide\svnide.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="svnide:Make">
+        <MSBuild Projects="svnide\svnide.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GitIDE">
+        <MSBuild Projects="gitide\GitIDE.dproj"/>
+    </Target>
+    <Target Name="GitIDE:Clean">
+        <MSBuild Projects="gitide\GitIDE.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GitIDE:Make">
+        <MSBuild Projects="gitide\GitIDE.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VerInsMisc;svn;svnui;svnide;GitIDE"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VerInsMisc:Clean;svn:Clean;svnui:Clean;svnide:Clean;GitIDE:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VerInsMisc:Make;svn:Make;svnui:Make;svnide:Make;GitIDE:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
